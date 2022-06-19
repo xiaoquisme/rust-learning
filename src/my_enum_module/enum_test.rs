@@ -79,3 +79,18 @@ fn rough_time_to_english_test() {
     let result = rough_time_to_english(RoughTime::InTheFuture(TimeUnit::Days, 1));
     assert_eq!("a day from now", result);
 }
+
+#[test] 
+fn enum_match_test() {
+    let str = "0";
+    let mut is_end = false;
+
+    for char in str.chars() {
+        is_end = match char {
+            '\r' | '\n' => true,
+            '0' ..= '9' => true,
+            _ => false
+        }        
+    }
+    assert_eq!(true, is_end);
+}
