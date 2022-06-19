@@ -14,3 +14,26 @@ pub fn compare(n: i32, m: i32) -> Ordering {
     }
     Ordering::Equal
 }
+
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub enum TimeUnit {
+    Seconds, Minutes, Hours, Days, Months, Years,
+}
+
+impl TimeUnit {
+    fn plural(self) -> &'static str {
+        match self {
+            TimeUnit::Seconds => "seconds",
+            TimeUnit::Minutes => "minutes",
+            TimeUnit::Hours => "hours",
+            TimeUnit::Days => "days",
+            TimeUnit::Months => "months",
+            TimeUnit::Years => "years"
+        }
+    }
+}
+
+#[test]
+fn test_time_unit() {
+    assert_eq!("days", TimeUnit::Days.plural());
+}
