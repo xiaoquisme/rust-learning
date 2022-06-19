@@ -94,3 +94,16 @@ fn enum_match_test() {
     }
     assert_eq!(true, is_end);
 }
+
+// @模式
+
+// let result = match test() {
+//     Shape::rect(top, bottom) => some_method(Shape::rect(top, buttom)),
+//     // ... rest of branchs
+// }
+
+// can be sample as below with @ mode 
+// let result = match test() {
+//     rect @ Shape::reac(..) => some_method(&reac),
+//     // ... rest of branches
+// }
